@@ -1,0 +1,285 @@
+@import './resets';
+@import './variables';
+
+
+@function gradients($gradient-color){
+    @return map-get($gradients , $gradient-color);
+}
+
+@function weight($font-weight){
+    @return map-get($font-weights , $font-weight);
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+}
+
+.container{
+    position: absolute;
+    top:50%;
+    left:50%;
+    width: 100vw;
+    max-width: 1300px;
+    height: 100vh;
+    max-height: 700px;
+    transform: translate(-50% , -50%);
+    background-color: #fafafa;
+}
+
+main{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    
+    .gradient-bg{
+        z-index:-1;
+    }
+
+    .gradient-bg-left{
+        position: absolute;
+        top:0;
+        left: 0;
+        height: 85%;
+        width: 25%;
+        background-image: linear-gradient(to bottom left , gradients(light-magenta) , gradients(light-violet));
+        border-radius: 0 0 50% 50% / 0 0 30% 20%;
+    }
+
+    .gradient-bg-right{
+        position: absolute;
+        bottom:0;
+        right: 0;
+        height: 85%;
+        width: 20%;
+        background-color: $light-grayish-violet;
+        border-radius: 50% 0 0 0 / 30% 0 0 0;
+    }
+
+    .phone{
+        width: 45%;
+        padding-right: 2rem;
+        display: flex;
+        justify-content: flex-end;
+
+        .content{
+            width: 300px;
+            background-color: $white;
+            border-radius: 30px;
+            padding: 1rem 0.8rem;
+            transform: scale(0.8);
+
+            header{
+                width: 100%;
+                padding: 0 1rem 0.5rem 1rem;
+                background-image: linear-gradient(to right, gradients(light-violet) , gradients(light-magenta));
+                border-radius:20px 20px 10px 10px ;
+                display: flex;
+                flex-direction: column;
+
+                .top{
+                    width:70%;
+                    height: 35px;
+                    margin: 0 auto;
+                    border-radius: 17.5px;
+                    background-color: $white;
+                    transform: translateY(-1rem);
+                }
+
+                .header-content{
+                    display: flex;
+                    align-items: center;
+
+                    .chevron-left{
+                        color: $white;
+                        font-size: 1rem;
+                    }
+
+                    .avatar{
+                        height: 30px;
+                        width: 30px;
+                        border-radius: 50%;
+                        border: 1px solid $white;
+                        margin-left: 10px;
+                    }
+
+                    .details{
+                        display: flex;
+                        flex-direction: column;
+                        margin-left: 10px;
+
+                        h3{
+                            color: $white;
+                            font-family: $Rubik;
+                            font-size: 0.8rem;
+                            font-weight: weight(medium);
+                        }
+
+                        p{
+                            color: $pale-violet;
+                            font-family: $Rubik;
+                            font-size: 0.65rem;
+                            font-weight: weight(regular);
+                            margin-top: 2px;
+                        }
+                    }
+
+                    i.fa-ellipsis-v{
+                        margin-left: auto;
+                        color: $white;
+                        font-size: 0.9rem;
+                    }
+                }
+            }
+
+            .chat{
+                width: 100%;
+                padding: 1rem 0.5rem 1rem 1rem;
+                background-color: $light-grayish-violet;
+                display: flex;
+                flex-direction: column;
+                border-radius: 0 0 20px 20px;
+
+                .sent{
+                    margin-left: auto;
+                }
+
+                .received-msg{
+                    width: 65%;
+                    padding: 0.5rem 0.9rem;
+                    border-radius: 5px 10px 10px 3px;
+                    color: $moderate-violet;
+                    font-family: $Rubik;
+                    font-weight: weight(medium);
+                    font-size: 0.6rem;
+                    line-height: 1.4;
+                    background-color: $grayish-blue;
+                    background-color: #ede5f4;
+                    margin-bottom: 5px;
+
+                    &:last-of-type{
+                        margin-top: 10px;
+                    }
+                }
+
+                .sent-img{
+                    width: max-content;
+                    display: flex;
+                    margin-top: 8px;
+                    margin-bottom: 6px;
+
+                    img{
+                        height: 35px;
+                        width: 35px;
+                        border-radius: 10px;
+                        margin-left: 15px;
+                    }
+                }
+
+                .sent-msg{
+                    max-width: 60%;
+                    padding: 0.5rem 0.9rem;
+                    border-radius: 10px 5px 3px 10px;
+                    color: $desaturated-dark-violet;
+                    font-family: $Rubik;
+                    font-weight: weight(medium);
+                    font-size: 0.6rem;
+                    line-height: 1.4;
+                    background-color: $white;
+                    margin-bottom: 5px;
+                }
+
+                .pay{
+                    width: 80%;
+                    padding: 0.5rem 0.9rem;
+                    border-radius: 10px 8px 8px 4px;
+                    background-image: linear-gradient(to right, gradients(light-magenta) , gradients(light-violet));
+                    display: flex;
+                    align-items: center;
+                    margin-top: 10px;
+
+                    i.fa-circle-thin{
+                        color: $very-light-magenta;
+                        font-size: 1rem;
+                    }
+
+                    p{
+                        color: $grayish-blue;
+                        font-size: 0.7rem;
+                        font-weight: weight(medium);
+                        font-family: $Rubik;
+                        margin-left: 10px;
+                    }
+
+                    .price{
+                        color: $white;
+                        font-size: 1.1rem;
+                        font-weight: weight(bold);
+                        font-family: $Rubik;
+                        margin-left: auto;
+                    }
+                }
+
+                .send-input{
+                    width: 100%;
+                    background-color: $white;
+                    display: flex;
+                    align-items: center;
+                    padding: 0.4rem 1rem;
+                    border-radius: 20px / 50%;
+                    margin-top: 10px;
+
+                    p{
+                        color: $grayish-blue;
+                        font-size: 0.7rem;
+                        font-weight: weight(regular);
+                        font-family: $Rubik;
+                    }
+
+                    .submit{
+                        width: 30px;
+                        height: 30px;
+                        border-radius: 50%;
+                        background-color: $very-dark-desaturated-violet;
+                        margin-left: auto;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+
+                        i.fa{
+                            color: $white;
+                            font-size: 0.85rem;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+    .texts{
+        width: 55%;
+        padding-left: 2rem;
+        h1{
+            color: $very-dark-desaturated-violet;
+            font-size: 2.5rem;
+            font-weight: weight(medium);
+            font-family: $Rubik;
+        }
+
+        h3{
+            max-width: 70%;
+            color: $dark-grayish-violet;
+            font-size: 1rem;
+            font-weight: weight(regular);
+            font-family: $Rubik;
+            line-height: 1.4;
+            margin-top: 20px;
+        }
+    }
+}
+
+@import './responsive'

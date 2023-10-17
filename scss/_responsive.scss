@@ -1,0 +1,112 @@
+@include media-me{
+    main{
+        .gradient-bg-left{
+            width: 30%;
+        }
+    
+        .gradient-bg-right{
+            width: 25%;
+        }
+    
+        .phone{
+            width: 50%;
+            padding-right: 0.5rem;
+
+            .content{
+                transform: scale(0.7) translateX(20%);
+            }
+        }
+
+        .texts{
+            width: 50%;
+            padding-left: 0.5rem;
+            
+            h3{
+                max-width: 90%;
+            }
+        }
+    }
+}
+
+@include media-md{
+    .container{
+        top:0;
+        left:0;
+        width: 100%;
+        height: max-content;
+        transform: none;
+    }
+
+    main{
+        flex-direction: column;
+        height: max-content;
+        position: relative;
+        z-index: 2;
+
+        .gradient-bg{
+            z-index: 1;
+        }
+    
+        .gradient-bg-left{
+            height: 100vh;
+            width: 50%;
+            border-radius: 0 0 50% 50% / 0 0 30% 20%;
+            border-radius: 0 0 100% 0 / 0 0 50vh 0;
+        }
+        
+        .gradient-bg-right{
+            height: 80vh;
+            width: 45%;
+            border-radius: 50% 0 0 0 / 30% 0 0 0;
+            border-radius: 100% 0 0 0 / 50vh 0 0 0 ;
+        }
+
+        .phone{
+            width: 100%;
+            padding:0;
+            justify-content: center;
+            z-index: 2;
+            margin-top: 4rem;
+
+            .content{
+                transform: scale(1.0) translateX(0);
+            }
+        }
+
+        .texts{
+            width: 100%;
+            padding:0;
+            z-index: 2;
+            margin-top: 3rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+            h1{
+                text-align: center;
+            }
+
+            h3{
+                max-width: 80%;
+                line-height: 1.6;
+                text-align: center;
+                margin-bottom: 5rem;
+            }
+        }
+    }
+}
+
+
+@include media-xmd{
+    :root{
+        font-size: 90%;
+    }
+    main{
+        .phone{
+            margin-top: 0;
+            .content{
+                transform: scale(0.8);
+            }
+        }
+    }
+}
